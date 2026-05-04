@@ -1,6 +1,35 @@
+import { useEffect, useState } from 'react'
 import logo from '../assets/logo.png'
 
 export default function Footer({ onContactClick }) {
+  const [showEmail, setShowEmail] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const email = 'emiliano8977@gmail.com'
+
+  useEffect(() => {
+    if (!copied) return
+
+    const timeoutId = setTimeout(() => {
+      setCopied(false)
+    }, 5000)
+
+    return () => clearTimeout(timeoutId)
+  }, [copied])
+
+  const toggleEmail = () => {
+    setShowEmail((prev) => !prev)
+    if (copied) setCopied(false)
+  }
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email)
+      setCopied(true)
+    } catch (error) {
+      console.error('Copy failed', error)
+    }
+  }
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -24,6 +53,25 @@ export default function Footer({ onContactClick }) {
               </svg>
               <span>Instagram</span>
             </a>
+            <div className="footer-email-container">
+              <button type="button" className={`footer-social-button footer-email-button ${showEmail ? 'expanded' : ''}`} onClick={toggleEmail} aria-expanded={showEmail}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16v16H4z" />
+                  <path d="M4 7l8 5 8-5" />
+                  <path d="M4 17l8-5 8 5" />
+                </svg>
+                <span>Correo</span>
+                <svg className={`footer-email-arrow ${showEmail ? 'rotated' : ''}`} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6,9 12,15 18,9"></polyline>
+                </svg>
+              </button>
+              <div className={`footer-email-panel ${showEmail ? 'visible' : ''}`}>
+                <div className="footer-email-text">emiliano8977@gmail.com</div>
+                <button type="button" className={`footer-email-copy ${copied ? 'copied' : ''}`} onClick={copyEmail}>
+                  {copied ? 'Copiado' : 'Copiar correo'}
+                </button>
+              </div>
+            </div>
             <a href="https://wa.me/5492615377338" aria-label="WhatsApp">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 11.5a8.38 8.38 0 0 1-1.86 5.16l-.05.05-2.6 2.6a1 1 0 0 1-1.24.14 11.72 11.72 0 0 1-5.36 1.39A11.93 11.93 0 0 1 3 7.54a11.72 11.72 0 0 1 1.39-5.36 1 1 0 0 1 .14-1.24l2.6-2.6A8.38 8.38 0 0 1 11.5 3c2.06 0 4 0.8 5.46 2.26A7.72 7.72 0 0 1 21 11.5z" />

@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 
+const carouselTestImages = [
+  'https://iili.io/BQuhpHJ.png',
+  'https://iili.io/BQuwYBI.png'
+]
+
 const projects = [
   {
     id: 2,
@@ -15,6 +20,7 @@ const projects = [
         title: 'Tienda Online',
         description: 'Plataforma de e-commerce completa con carrito, pagos seguros y panel de administración intuitivo.',
         logo: 'https://via.placeholder.com/160?text=E-Commerce+Web',
+        images: carouselTestImages,
         url: 'https://ecommerce.fluxxar.com'
       },
       // {
@@ -39,7 +45,7 @@ const projects = [
     description: 'Rápidas, conectadas y consistentes.',
     tags: ['React Native', 'Flutter', 'AWS'],
     link: 'https://apps.fluxxar.com',
-    image: 'https://via.placeholder.com/640x360.png?text=Mobile+Apps',
+    /*image: 'https://via.placeholder.com/640x360.png?text=Mobile+Apps',*/
     badge: { text: 'FLUXXAR <mobile/>', colorPart: '#1dd1a1' },
     apps: [
       {
@@ -47,6 +53,7 @@ const projects = [
         title: 'Sinergia+',
         description: 'Plataforma de Eventos y Grupos deportivos y sociales recreativos.',
         logo: 'https://iili.io/BQ28afV.png',
+        images: carouselTestImages,
         url: 'https://apps.fluxxar.com/sinergia'
       },
       {
@@ -54,6 +61,7 @@ const projects = [
         title: 'Taller Manager',
         description: 'Controla tus clientes y turnos desde el teléfono con paneles claros.',
         logo: 'https://iili.io/BQJ7oF9.png',
+        images: carouselTestImages,
         url: 'https://apps.fluxxar.com/taller'
       },
       {
@@ -61,6 +69,7 @@ const projects = [
         title: 'SendMailing App',
         description: 'Organiza los tiempos, control y seguimiento de envios desde el celular en colaboración con tu equipo.',
         logo: 'https://iili.io/BQ2LAYv.png',
+        images: carouselTestImages,
         url: 'https://apps.fluxxar.com/sendmailing'
       }
     ]
@@ -79,6 +88,7 @@ const projects = [
         title: 'Panel Web',
         description: 'Interfaz web completa para gestión de inventario, contabilidad y recursos humanos con dashboards en tiempo real.',
         logo: 'https://via.placeholder.com/160?text=ERP+Web',
+        images: carouselTestImages,
         url: 'https://erp.fluxxar.com/web'
       },
       // {
@@ -103,10 +113,14 @@ const projects = [
 export default function Projects() {
   const cardsRef = useRef([])
   const [activeApp, setActiveApp] = useState(null)
+  const [activeImage, setActiveImage] = useState(0)
+  const [expandedImage, setExpandedImage] = useState(null)
 
   useEffect(() => {
     if (activeApp) {
       document.body.style.overflow = 'hidden'
+      setActiveImage(0)
+      setExpandedImage(null)
     } else {
       document.body.style.overflow = ''
     }
@@ -201,24 +215,90 @@ export default function Projects() {
         ))}
       </div>
       {activeApp && (
-        <div className="modal-overlay" onClick={() => setActiveApp(null)}>
-          <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <p className="section-tag">// APP MÓVIL</p>
-              <h2 className="section-title">{activeApp.title}</h2>
-            </div>
-            <div className="project-modal-body">
-              <img src={activeApp.logo} alt={activeApp.title} className="project-modal-logo" />
-              <p className="project-description">{activeApp.description}</p>
-              <a href={activeApp.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                Abrir App desplegada
-              </a>
-              <button type="button" className="btn btn-cancel" onClick={() => setActiveApp(null)}>
-                Cerrar
-              </button>
+        <>
+          <div className="project-modal-overlay" onClick={() => setActiveApp(null)}>
+            <div className="project-modal-card" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <p className="section-tag">// APP MÓVIL</p>
+                <h2 className="section-title">{activeApp.title}</h2>
+              </div>
+              <div className="project-modal-body">
+                <div className="project-modal-media">
+                  <div className="project-logo-card">
+                    <img src={activeApp.logo} alt={activeApp.title} className="project-modal-logo" />
+                  </div>
+                  <div className="project-carousel">
+                    <button
+                      type="button"
+                      className="carousel-image-button"
+                      onClick={() => setExpandedImage(activeApp.images?.[activeImage] || activeApp.logo)}
+                    >
+                      <div className="carousel-image-wrapper">
+                        <img
+                          src={activeApp.images?.[activeImage] || activeApp.logo}
+                          alt={`${activeApp.title} screenshot ${activeImage + 1}`}
+                        />
+                      </div>
+                    </button>
+                    {activeApp.images?.length > 1 && (
+                      <div className="carousel-controls">
+                        <button
+                          type="button"
+                          className="btn btn-outline"
+                          onClick={() => setActiveImage((prev) => (prev - 1 + activeApp.images.length) % activeApp.images.length)}
+                        >
+                          Anterior
+                        </button>
+                        <div className="carousel-indicators">
+                          {activeApp.images.map((_, index) => (
+                            <button
+                              key={index}
+                              type="button"
+                              className={`carousel-indicator ${index === activeImage ? 'active' : ''}`}
+                              onClick={() => setActiveImage(index)}
+                              aria-label={`Ver imagen ${index + 1}`}
+                            />
+                          ))}
+                        </div>
+                        <button
+                          type="button"
+                          className="btn btn-outline"
+                          onClick={() => setActiveImage((prev) => (prev + 1) % activeApp.images.length)}
+                        >
+                          Siguiente
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <p className="project-description modal-project-description">{activeApp.description}</p>
+              </div>
+              <div className="project-modal-actions">
+                <button type="button" className="btn btn-cancel" onClick={() => setActiveApp(null)}>
+                  Cerrar
+                </button>
+                <a href={activeApp.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Abrir App desplegada
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+          {expandedImage && (
+            <div className="project-image-viewer-overlay" onClick={() => setExpandedImage(null)}>
+              <div className="project-image-viewer" onClick={(e) => e.stopPropagation()}>
+                <button
+                  type="button"
+                  className="project-image-viewer-close"
+                  onClick={() => setExpandedImage(null)}
+                  aria-label="Cerrar imagen ampliada"
+                >
+                  ×
+                </button>
+                <img src={expandedImage} alt="Vista ampliada" />
+              </div>
+            </div>
+          )}
+        </>
       )}
     </section>
   )

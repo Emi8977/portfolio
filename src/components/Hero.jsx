@@ -22,7 +22,9 @@ export default function Hero({ onContactClick }) {
           <span className="accent-word">STUDIO</span> <span className="code-mark">&lt;/&gt;</span>
         </h1>
         */}
-        <h2 className="section-title">FULL STACK <span className="accent-word">DEVELOPER</span></h2>
+        <h1 className="section-title">EMILIANO <span className="accent-word">LUNA</span></h1>
+        
+        <h3 className="section-title">FULL STACK <span className="accent-word">DEVELOPER</span></h3>
         <p className="hero-subtitle">
           Desarrollo aplicaciones claras y bien construidas
         </p>
