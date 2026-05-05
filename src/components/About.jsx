@@ -41,7 +41,7 @@ export default function About() {
 
             Mi foco está en el desarrollo de aplicaciones, y cuento con formación en análisis y procesamiento de datos, lo que me permite abordar problemas técnicos con una mirada más analítica.
             
-            <br/>Fluxxar Software Studio ademas de ser mi marca personal, es la forma en que organizo, desarrollo y presento mis proyectos, construyendo con criterio propio.
+            <br/>Fluxxar Software Studio, ademas de ser mi marca personal, es la forma en que organizo, desarrollo y presento mis proyectos con criterio propio.
             
             </p>
           <p>
