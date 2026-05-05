@@ -1,6 +1,37 @@
 import { useEffect, useRef, useState } from 'react'
 
-const carouselTestImages = [
+// Imágenes específicas para cada proyecto
+const sinergiaImages = [
+  'https://iili.io/BQuhpHJ.png',
+  'https://iili.io/BQuwYBI.png'
+]
+
+const tallerManagerImages = [
+  'https://iili.io/BQmYJix.png',
+  'https://iili.io/BQmaept.png',
+  'https://iili.io/BQm0fEJ.png',
+  'https://iili.io/BZ9Yuvp.png',
+  'https://iili.io/BZ9aNON.png',
+  'https://iili.io/BZ9lW9R.png',
+  'https://iili.io/BZ90fUJ.png',
+  'https://iili.io/BZ90UqF.png',
+  'https://iili.io/BZ917B1.png',
+  'https://iili.io/BZ9EH6F.png',
+  'https://iili.io/BZ9ESSa.png',
+  'https://iili.io/BZ9VYtR.png'
+]
+
+const sendMailingImages = [
+  'https://iili.io/BQuhpHJ.png',
+  'https://iili.io/BQuwYBI.png'
+]
+
+const ecommerceImages = [
+  'https://iili.io/BQuhpHJ.png',
+  'https://iili.io/BQuwYBI.png'
+]
+
+const erpImages = [
   'https://iili.io/BQuhpHJ.png',
   'https://iili.io/BQuwYBI.png'
 ]
@@ -20,7 +51,7 @@ const projects = [
         title: 'Tienda Online',
         description: 'Plataforma de e-commerce completa con carrito, pagos seguros y panel de administración intuitivo.',
         logo: 'https://via.placeholder.com/160?text=E-Commerce+Web',
-        images: carouselTestImages,
+        images: ecommerceImages,
         url: 'https://ecommerce.fluxxar.com'
       },
       // {
@@ -53,23 +84,23 @@ const projects = [
         title: 'Sinergia+',
         description: 'Plataforma de Eventos y Grupos deportivos y sociales recreativos.',
         logo: 'https://iili.io/BQ28afV.png',
-        images: carouselTestImages,
+        images: sinergiaImages,
         url: 'https://apps.fluxxar.com/sinergia'
       },
       {
         id: 'tallermanager',
         title: 'Taller Manager',
         description: 'Controla tus clientes y turnos desde el teléfono con paneles claros.',
-        logo: 'https://iili.io/BQJ7oF9.png',
-        images: carouselTestImages,
-        url: 'https://apps.fluxxar.com/taller'
+        logo: 'https://iili.io/BQmFn5B.png',
+        images: tallerManagerImages,
+        url: 'https://appetize.io/app/b_txis5qfwmpwwigeqsfvfcllr7e'
       },
       {
         id: 'sendmailing',
         title: 'SendMailing App',
         description: 'Organiza los tiempos, control y seguimiento de envios desde el celular en colaboración con tu equipo.',
         logo: 'https://iili.io/BQ2LAYv.png',
-        images: carouselTestImages,
+        images: sendMailingImages,
         url: 'https://apps.fluxxar.com/sendmailing'
       }
     ]
@@ -88,7 +119,7 @@ const projects = [
         title: 'Panel Web',
         description: 'Interfaz web completa para gestión de inventario, contabilidad y recursos humanos con dashboards en tiempo real.',
         logo: 'https://via.placeholder.com/160?text=ERP+Web',
-        images: carouselTestImages,
+        images: erpImages,
         url: 'https://erp.fluxxar.com/web'
       },
       // {
@@ -228,18 +259,34 @@ export default function Projects() {
                     <img src={activeApp.logo} alt={activeApp.title} className="project-modal-logo" />
                   </div>
                   <div className="project-carousel">
-                    <button
-                      type="button"
-                      className="carousel-image-button"
-                      onClick={() => setExpandedImage(activeApp.images?.[activeImage] || activeApp.logo)}
-                    >
-                      <div className="carousel-image-wrapper">
-                        <img
-                          src={activeApp.images?.[activeImage] || activeApp.logo}
-                          alt={`${activeApp.title} screenshot ${activeImage + 1}`}
-                        />
-                      </div>
-                    </button>
+                    <div className="carousel-container">
+                      {activeApp.images?.map((image, index) => {
+                        const isActive = index === activeImage
+                        const isPrev = index === (activeImage - 1 + activeApp.images.length) % activeApp.images.length
+                        const isNext = index === (activeImage + 1) % activeApp.images.length
+
+                        return (
+                          <div
+                            key={index}
+                            className={`carousel-slide ${isActive ? 'active' : ''} ${isPrev ? 'prev' : ''} ${isNext ? 'next' : ''}`}
+                            onClick={() => {
+                              if (!isActive) {
+                                setActiveImage(index)
+                              } else {
+                                setExpandedImage(image)
+                              }
+                            }}
+                          >
+                            <div className="carousel-image-wrapper">
+                              <img
+                                src={image}
+                                alt={`${activeApp.title} screenshot ${index + 1}`}
+                              />
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
                     {activeApp.images?.length > 1 && (
                       <div className="carousel-controls">
                         <button
@@ -284,17 +331,52 @@ export default function Projects() {
             </div>
           </div>
           {expandedImage && (
-            <div className="project-image-viewer-overlay" onClick={() => setExpandedImage(null)}>
-              <div className="project-image-viewer" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="lightbox-overlay"
+              onClick={() => setExpandedImage(null)}
+            >
+              <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
                 <button
                   type="button"
-                  className="project-image-viewer-close"
+                  className="lightbox-close"
                   onClick={() => setExpandedImage(null)}
-                  aria-label="Cerrar imagen ampliada"
+                  aria-label="Cerrar imagen"
                 >
-                  ×
+                  ✕
                 </button>
-                <img src={expandedImage} alt="Vista ampliada" />
+                {activeApp?.images?.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      className="lightbox-nav lightbox-prev"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        const currentIndex = activeApp.images.indexOf(expandedImage)
+                        const prevIndex = (currentIndex - 1 + activeApp.images.length) % activeApp.images.length
+                        setExpandedImage(activeApp.images[prevIndex])
+                        setActiveImage(prevIndex)
+                      }}
+                      aria-label="Imagen anterior"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      type="button"
+                      className="lightbox-nav lightbox-next"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        const currentIndex = activeApp.images.indexOf(expandedImage)
+                        const nextIndex = (currentIndex + 1) % activeApp.images.length
+                        setExpandedImage(activeApp.images[nextIndex])
+                        setActiveImage(nextIndex)
+                      }}
+                      aria-label="Imagen siguiente"
+                    >
+                      ›
+                    </button>
+                  </>
+                )}
+                <img src={expandedImage} alt="Vista ampliada" className="lightbox-image" />
               </div>
             </div>
           )}
