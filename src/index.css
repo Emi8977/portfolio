@@ -1791,6 +1791,29 @@ h3.section-title {
     flex-direction: column;
     text-align: center;
   }
+
+  /* Modal responsive */
+  .project-modal-overlay {
+    padding: 10px;
+  }
+
+  .project-modal-card {
+    padding: 20px 15px;
+    max-height: calc(100vh - 20px);
+  }
+
+  .project-modal-logo {
+    width: min(200px, 100%);
+  }
+
+  .carousel-image-wrapper {
+    width: 100%;
+    max-height: 150px;
+  }
+
+  .project-modal-actions {
+    gap: 12px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1804,5 +1827,44 @@ h3.section-title {
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Modal responsive for mobile */
+  .project-modal-card {
+    padding: 16px 12px;
+  }
+
+  .project-modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .project-modal-actions .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 0.8rem;
+  }
+
+  .carousel-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .carousel-indicators {
+    order: -1;
+  }
+
+  .project-logo-card {
+    padding: 4px;
+  }
+
+  .project-modal-logo {
+    width: min(150px, 100%);
+  }
+
+  .carousel-image-wrapper {
+    max-height: 120px;
   }
 }
