@@ -55,14 +55,14 @@ body::before {
 }
 
 /* Animations */
-@keyframes fadeInUp {
+@keyframes zoomIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: scale(0.8);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
 }
 
@@ -700,30 +700,94 @@ body::before {
   gap: 12px;
 }
 
-.carousel-image-button {
-  border: none;
-  background: none;
-  padding: 0;
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: scale(0.8) translateX(0);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+  z-index: 3;
+}
+
+.carousel-slide.prev {
+  opacity: 0.6;
+  transform: scale(0.7) translateX(-60%) rotateY(15deg);
+  z-index: 2;
+  filter: blur(1px);
+}
+
+.carousel-slide.next {
+  opacity: 0.6;
+  transform: scale(0.7) translateX(60%) rotateY(-15deg);
+  z-index: 2;
+  filter: blur(1px);
+}
+
+.carousel-slide.prev .carousel-image-wrapper,
+.carousel-slide.next .carousel-image-wrapper {
+  pointer-events: none;
+}
+
+.carousel-slide.active .carousel-image-wrapper {
   cursor: zoom-in;
 }
 
 .carousel-image-wrapper {
-  width: 85%;
-  margin: 0 auto;
-  aspect-ratio: 16 / 9;
-  min-height: 140px;
-  max-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.06);
+  width: fit-content;
+  margin: 0 auto;
+  cursor: zoom-in;
+  transition: all 0.3s ease;
+  max-width: 390px;
+}
+
+.carousel-image-wrapper:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.02);
 }
 
 .carousel-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 92%;
+  height: auto;
+  max-height: 218px;
+  object-fit: contain;
+  object-position: center;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  border-radius: 12px;
+}
+
+.carousel-image-wrapper img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .carousel-controls {
@@ -775,50 +839,111 @@ body::before {
   flex-shrink: 0;
 }
 
-.project-image-viewer-overlay {
+/* Lightbox */
+.lightbox-overlay {
   position: fixed;
   inset: 0;
+  z-index: 9999;
   background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(6px);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 2200;
-  padding: 24px;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+  cursor: zoom-out;
 }
 
-.project-image-viewer {
+.lightbox-content {
   position: relative;
-  width: min(90vw, 900px);
+  max-width: 90vw;
   max-height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  cursor: default;
+  animation: scaleIn 0.25s ease;
 }
 
-.project-image-viewer img {
-  width: 100%;
-  height: auto;
-  max-height: 90vh;
-  border-radius: 20px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.6);
+  display: block;
 }
 
-.project-image-viewer-close {
+.lightbox-close {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: -16px;
+  right: -16px;
   width: 36px;
   height: 36px;
-  border-radius: 999px;
+  border-radius: 50%;
+  background: var(--accent, #ff9f43);
   border: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--light);
-  font-size: 1.6rem;
+  color: #fff;
+  font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.15);
+  background: #ff6b6b;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--light);
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.lightbox-nav:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.lightbox-prev {
+  left: -25px;
+}
+
+.lightbox-next {
+  right: -25px;
+}
+
+/* Cursor de zoom en la imagen del carrusel */
+.carousel-image-wrapper img {
+  cursor: zoom-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
 }
 
 @keyframes fadeInUp {
@@ -920,10 +1045,11 @@ h3.section-title {
 }
 
 .about-text p {
-  color: var(--muted);
+  color: var(--light);
   margin-bottom: 20px;
-  font-size: 1.25rem;
-  line-height: 1.8;
+  font-size: 1.20rem;
+  font-weight: 500;
+  line-height: 1.9;
 }
 
 .about-steps {
@@ -1792,6 +1918,63 @@ h3.section-title {
     text-align: center;
   }
 
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  /* Hero banner responsive */
+  .hero-banner {
+    padding: 16px 20px;
+    gap: 16px;
+    max-width: 450px;
+  }
+
+  .hero-banner-icon {
+    height: 70px;
+  }
+
+  .hero-banner-image {
+    height: 90px;
+  }
+
+  .hero-tag {
+    font-size: 0.8rem;
+  }
+
+  /* Stack responsive */
+  .stack-group .stack-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+  }
+
+  .stack-item {
+    padding: 10px 6px;
+  }
+
+  .stack-icon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 6px;
+  }
+
+  .stack-item span {
+    font-size: 0.65rem;
+  }
+
+  .stack-more-panel.visible {
+    padding: 12px;
+  }
+
   /* Modal responsive */
   .project-modal-overlay {
     padding: 10px;
@@ -1806,9 +1989,9 @@ h3.section-title {
     width: min(200px, 100%);
   }
 
-  .carousel-image-wrapper {
-    width: 100%;
-    max-height: 150px;
+  .carousel-image-wrapper img {
+    width: 91%;
+    max-height: 130px;
   }
 
   .project-modal-actions {
@@ -1840,6 +2023,14 @@ h3.section-title {
     gap: 10px;
   }
 
+  .project-modal-actions .btn-primary {
+    order: 1;
+  }
+
+  .project-modal-actions .btn-cancel {
+    order: 2;
+  }
+
   .project-modal-actions .btn {
     width: 100%;
     text-align: center;
@@ -1848,23 +2039,115 @@ h3.section-title {
   }
 
   .carousel-controls {
-    flex-direction: column;
     gap: 8px;
+    padding: 0 4px;
+  }
+
+  .carousel-controls .btn {
+    padding: 8px 12px;
+    font-size: 0.75rem;
   }
 
   .carousel-indicators {
-    order: -1;
+    gap: 6px;
+    min-width: auto;
+  }
+
+  .carousel-indicator {
+    width: 8px;
+    height: 8px;
   }
 
   .project-logo-card {
     padding: 4px;
   }
 
-  .project-modal-logo {
-    width: min(150px, 100%);
+  .carousel-container {
+    height: 220px;
+  }
+
+  .carousel-slide.prev,
+  .carousel-slide.next {
+    opacity: 0.3;
+    transform: scale(0.6) translateX(var(--translate-x)) rotateY(var(--rotate-y));
+  }
+
+  .carousel-slide.prev {
+    --translate-x: -40%;
+    --rotate-y: 10deg;
+  }
+
+  .carousel-slide.next {
+    --translate-x: 40%;
+    --rotate-y: -10deg;
   }
 
   .carousel-image-wrapper {
-    max-height: 120px;
+    padding: 4px;
+    max-width: 200px;
+  }
+
+  .carousel-image-wrapper img {
+    width: 95%;
+    max-height: 104px;
+  }
+
+  /* Hero banner responsive for mobile */
+  .hero-banner {
+    padding: 12px 14px;
+    gap: 12px;
+    width: min(90%, 420px);
+    max-width: 420px;
+    margin: 0 auto 20px;
+  }
+
+  .hero-banner-icon {
+    height: 42px;
+  }
+
+  .hero-banner-image {
+    height: 56px;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Stack responsive for mobile */
+  .stack-group .stack-grid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 8px;
+  }
+
+  .stack-item {
+    padding: 8px 4px;
+  }
+
+  .stack-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+  }
+
+  .stack-item span {
+    font-size: 0.6rem;
+  }
+
+  .stack-show-more-button {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+  }
+
+  .stack-more-panel.visible {
+    padding: 10px;
   }
 }

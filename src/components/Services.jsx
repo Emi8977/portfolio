@@ -58,7 +58,7 @@ export default function Services() {
     <section className="services" id="services">
       <div className="section-header">
         <p className="section-tag">// LO QUE HAGO</p>
-        <h2 className="section-title">Que <span className="accent-word">Desarrollo</span></h2>
+        <h2 className="section-title">Qué <span className="accent-word">Desarrollo</span></h2>
       </div>
       <div className="services-grid">
         {services.map((service, index) => (
