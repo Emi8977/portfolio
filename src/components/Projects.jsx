@@ -26,9 +26,15 @@ const sendMailingImages = [
   'https://iili.io/BQuwYBI.png'
 ]
 
-const ecommerceImages = [
-  'https://iili.io/BQuhpHJ.png',
-  'https://iili.io/BQuwYBI.png'
+const ecommerceShoppilyImages = [
+  'https://iili.io/BtvkZcN.png',
+  'https://iili.io/BtvvYR1.png',
+  'https://iili.io/BtvvMfR.png',
+  'https://iili.io/BtvvSf4.png',
+  'https://iili.io/Btvv657.png',
+  'https://iili.io/BtvPgAQ.png',
+  'https://iili.io/BtviweR.png'
+  
 ]
 
 const erpImages = [
@@ -37,22 +43,23 @@ const erpImages = [
 ]
 
 const projects = [
+  
   {
-    id: 2,
+    id: 1,
     title: 'Interfaces y plataformas web.',
     description: 'Desarrollo con foco en rendimiento y experiencia.',
-    tags: ['Vue.js', 'Firebase', 'Stripe'],
+    tags: ['React.js', 'Node.js', 'MongoDB Atlas'],
     link: 'https://ecommerce.fluxxar.com',
     /*image: 'https://via.placeholder.com/640x360.png?text=E-Commerce',*/
     badge: { text: 'FLUXXAR <web/>', colorPart: '#ff9f43' },
     apps: [
       {
-        id: 'ecommerce-web',
-        title: 'Tienda Online',
-        description: 'Plataforma de e-commerce completa con carrito, pagos seguros y panel de administración intuitivo.',
-        logo: 'https://via.placeholder.com/160?text=E-Commerce+Web',
-        images: ecommerceImages,
-        url: 'https://ecommerce.fluxxar.com'
+        id: 'ecommerce-shoppily',
+        title: 'Shoppily e-commerce',
+        description: 'Shoppily es una plantilla base de e-commerce diseñada para negocios que prefieren cerrar sus ventas de forma humana. El comprador navega el catálogo, arma su carrito y completa un formulario con sus datos y domicilio. El vendedor recibe la orden estructurada y coordina el pago directamente — por WhatsApp, email o teléfono.\n\nDesarrollé el proyecto de forma independiente como solución reutilizable, pensada para adaptarse a distintos negocios sin partir desde cero. La plantilla fue la base para un e-commerce de un emprendimiento local de ropa deportiva, cubriendo sus necesidades funcionales con pocas modificaciones adicionales y algunos cambios en el diseño visual. Stack: React.js, Node.js y MongoDB Atlas.\n\nEl desafío fue diseñar un checkout sin pasarela de pago que no se sienta incompleto. La clave estuvo en el diseño y la experiencia del carrito — fluido y simple — y en un formulario que consolida toda la información de la venta en un solo lugar, sin fricciones para el comprador.\n\n_nota: La versión desplegada es un entorno de demostración — la plataforma de producción se encuentra en uso activo.',
+        logo: 'https://iili.io/BtvOuKN.png',
+        images: ecommerceShoppilyImages,
+        url: 'https://shoppily-ecommerce-demo.onrender.com'
       },
       // {
       //   id: 'ecommerce-mobile',
@@ -70,11 +77,12 @@ const projects = [
       // }
     ]
   },
+
   {
-    id: 3,
+    id: 2,
     title: 'Aplicaciones Móviles',
     description: 'Rápidas, conectadas y consistentes.',
-    tags: ['React Native', 'Flutter', 'AWS'],
+    tags: ['React Native', 'Flutter', 'Firebase'],
     link: 'https://apps.fluxxar.com',
     /*image: 'https://via.placeholder.com/640x360.png?text=Mobile+Apps',*/
     badge: { text: 'FLUXXAR <mobile/>', colorPart: '#1dd1a1' },
@@ -82,7 +90,7 @@ const projects = [
       {
         id: 'sinergiaplus',
         title: 'Sinergia+',
-        description: 'Plataforma de Eventos y Grupos deportivos y sociales recreativos.',
+        description: 'Sinergia+ nació como un proyecto académico junto a referentes y organizadores de clubes y grupos comunitarios que necesitaban una solución para fomentar la actividad física y la vida social. La app permite crear y unirse a grupos y eventos — tanto deportivos como recreativos — conectando personas con intereses en común.\n\nLideré el equipo de desarrollo y actué como nexo directo con los organizadores, traduciendo sus necesidades en decisiones de producto. Además de la coordinación del equipo, fui el desarrollador principal, llevando adelante la implementación con Flutter.\n\nEl desafío fue diseñar una experiencia que incentive la participación activa — no solo que los usuarios descubran eventos, sino que los creen, convoquen y sostengan en el tiempo. \n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción se encuentra en uso activo.',
         logo: 'https://iili.io/BQ28afV.png',
         images: sinergiaImages,
         url: 'https://apps.fluxxar.com/sinergia'
@@ -90,7 +98,7 @@ const projects = [
       {
         id: 'tallermanager',
         title: 'Taller Manager',
-        description: 'Controla tus clientes y turnos desde el teléfono con paneles claros.',
+        description: 'Taller Manager es una app móvil diseñada para que los talleres mecánicos dejen de gestionar sus turnos y clientes con papel, agenda o WhatsApp. Desarrollada inicialmente para un taller específico como proyecto base, la app surgió de una necesidad concreta que varios talleres compartían.\n\nDesarrollé el proyecto de forma independiente, cubriendo desde el diseño de la experiencia hasta la implementación completa con Flutter y Firebase.\n\nEl desafío fue centralizar en una sola app flujos que normalmente están fragmentados: agenda de turnos con vista diaria, semanal y mensual, gestión de clientes con sus vehículos, historial de services por vehículo y generación de PDF para compartir con el dueño del auto — todo pensado para usarse rápido, desde el celular, en el contexto de un taller en funcionamiento.\n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción se encuentra en uso activo.',
         logo: 'https://iili.io/BQmFn5B.png',
         images: tallerManagerImages,
         url: 'https://appetize.io/app/b_txis5qfwmpwwigeqsfvfcllr7e'
@@ -98,7 +106,7 @@ const projects = [
       {
         id: 'sendmailing',
         title: 'SendMailing App',
-        description: 'Organiza los tiempos, control y seguimiento de envios desde el celular en colaboración con tu equipo.',
+        description: 'SendMailing es una app móvil desarrollada a medida para complementar el sistema interno de un emprendimiento de mensajería, con el objetivo de optimizar y simplificar el proceso de reparto y control de envíos.\n\nDesarrollé el proyecto de forma independiente para un emprendimiento local, cubriendo desde el diseño de la experiencia hasta la implementación completa con Flutter y Firebase.\n\nLa app opera en dos roles: el repartidor gestiona sus envíos asignados y actualiza el estado de cada uno — en camino, en almacén, entregado o cancelado — mientras que el manager tiene visibilidad total del historial y puede intervenir ante cualquier problema. La confirmación final se complementa con un sistema de firma en papel ya existente, por lo que la app se integró al flujo real sin reemplazarlo.\n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción no está en uso activo.',
         logo: 'https://iili.io/BQ2LAYv.png',
         images: sendMailingImages,
         url: 'https://apps.fluxxar.com/sendmailing'
@@ -106,7 +114,7 @@ const projects = [
     ]
   },
   {
-    id: 1,
+    id: 3,
     title: 'Sistemas de gestión.',
     description: 'Organización, datos y procesos en un solo lugar.',
     tags: ['React', 'Node.js', 'PostgreSQL'],
@@ -139,6 +147,7 @@ const projects = [
     ]
   },
 
+  
 ]
 
 export default function Projects() {
@@ -318,7 +327,14 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-                <p className="project-description modal-project-description">{activeApp.description}</p>
+                <div className="project-description modal-project-description">
+                  {activeApp.description.split('\n\n').map((paragraph, i) => {
+                    if (paragraph.startsWith('_nota:')) {
+                      return <p key={i} style={{ fontStyle: 'italic', opacity: 0.7 }}>{paragraph.replace('_nota: ', '')}</p>
+                    }
+                    return <p key={i}>{paragraph}</p>
+                  })}
+                </div>
               </div>
               <div className="project-modal-actions">
                 <button type="button" className="btn btn-cancel" onClick={() => setActiveApp(null)}>

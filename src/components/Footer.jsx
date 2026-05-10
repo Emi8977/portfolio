@@ -42,7 +42,7 @@ export default function Footer({ onContactClick }) {
           </div>
         </div>
         <div className="footer-cta">
-          <p className="footer-cta-tag">// SÍGUENOS</p>
+          <p className="footer-cta-tag">// DÓNDE ENCONTRARME - FOLLOW ME -</p>
           <h3>Redes</h3>
           <div className="footer-social-column">
             <a href="https://www.instagram.com/fluxxar/" aria-label="Instagram">
