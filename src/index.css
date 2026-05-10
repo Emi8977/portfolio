@@ -824,8 +824,11 @@ body::before {
 
 .modal-project-description {
   color: rgba(255, 255, 255, 0.92);
-  line-height: 1.8;
-  font-size: 1rem;
+  line-height: 1.75;
+  font-size: 0.95rem;
+  white-space: pre-line;
+  word-break: break-word;
+  margin-top: 0.75rem;
 }
 
 .project-modal-actions {
@@ -1419,6 +1422,12 @@ h3.section-title {
   color: rgba(255, 255, 255, 0.85);
   font-size: 1.25rem;
   line-height: 1.8;
+}
+
+.project-description.modal-project-description {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .step-label {
@@ -2039,18 +2048,36 @@ h3.section-title {
   }
 
   .carousel-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto auto;
     gap: 8px;
     padding: 0 4px;
+    justify-items: stretch;
+    align-items: center;
+  }
+
+  .carousel-controls .carousel-indicators {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+    gap: 6px;
+    min-width: auto;
   }
 
   .carousel-controls .btn {
+    grid-row: 2;
+    width: 100%;
     padding: 8px 12px;
     font-size: 0.75rem;
   }
 
-  .carousel-indicators {
-    gap: 6px;
-    min-width: auto;
+  .carousel-controls .btn:first-of-type {
+    grid-column: 1;
+  }
+
+  .carousel-controls .btn:last-of-type {
+    grid-column: 2;
   }
 
   .carousel-indicator {

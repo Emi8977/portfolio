@@ -25,9 +25,11 @@ export default function Hero({ onContactClick }) {
         <h1 className="section-title">EMILIANO <span className="accent-word">LUNA</span></h1>
         
         <h3 className="section-title">FULL STACK <span className="accent-word">DEVELOPER</span></h3>
+        {/*
         <p className="hero-subtitle">
           Desarrollo aplicaciones claras y bien construidas
         </p>
+        */}
         <div className="hero-cta">
           <a href="#projects" className="btn btn-primary">Ver Proyectos</a>
           <button type="button" className="btn btn-contact" onClick={onContactClick}>Contactar</button>
