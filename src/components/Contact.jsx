@@ -101,7 +101,7 @@ export default function Contact({ isOpen, onClose }) {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="hola@tuempresa.com"
+                  placeholder="hola@ejemplo.com"
                 />
               </div>
               <div className="form-group">

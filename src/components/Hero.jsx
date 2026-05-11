@@ -14,7 +14,7 @@ export default function Hero({ onContactClick }) {
           <img src={logo} alt="Fluxxar icon" className="hero-banner-icon" />
           <img src={logobanner} alt="FLUXXAR SOFTWARE STUDIO" className="hero-banner-image" />
         </div>
-        <p className="hero-tag">// Software, APPS y Más</p>
+        <p className="hero-tag">// LA IDEA EN PRODUCCIÓN</p>
         {/*
         <h1 className="hero-title">
           <span className="hero-brand">FLUXXAR</span><br />
