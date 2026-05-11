@@ -213,7 +213,9 @@ export default function Projects() {
             >
               {project.badge && (
                 <div className="project-badge">
+                  {/*
                   <span className="badge-main">FLUXXAR </span>
+                  */}
                   <span className="badge-color">{project.badge.text.split('FLUXXAR ')[1]}</span>
                 </div>
               )}
