@@ -37,7 +37,7 @@ export default function About() {
       <div className="about-content">
         <div className="about-text">
           <p>
-            Soy Emiliano Luna, desarrollador de software próximo a recibirme de la Tecnicatura en Desarrollo de Software en la Universidad de Cuyo. <br/>
+            Soy Emiliano Luna, Full Stack Developer próximo a recibirme de la Tecnicatura en Desarrollo de Software en la Universidad de Cuyo. <br/>
 
             Mi foco está en el desarrollo de aplicaciones, y cuento con formación en análisis y procesamiento de datos, lo que me permite abordar problemas técnicos con una mirada más analítica.
             
