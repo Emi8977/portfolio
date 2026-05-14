@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -8,15 +8,22 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function App() {
-  const [scrolled, setScrolled] = useState(false)
+  const [navbarExpanded, setNavbarExpanded] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const heroElement = document.querySelector('.hero')
+    if (!heroElement) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setNavbarExpanded(!entry.isIntersecting)
+      },
+      { threshold: 0 }
+    )
+
+    observer.observe(heroElement)
+    return () => observer.disconnect()
   }, [])
 
   const openContactModal = () => setContactOpen(true)
@@ -24,7 +31,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header scrolled={scrolled} onContactClick={openContactModal} />
+      <Header expanded={navbarExpanded} onContactClick={openContactModal} />
       <main>
         <Hero onContactClick={openContactModal} />
         <About />
