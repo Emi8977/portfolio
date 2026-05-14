@@ -30,6 +30,7 @@ export default function Hero({ onContactClick }) {
           Desarrollo aplicaciones claras y bien construidas
         </p>
         */}
+        <br/><br/>
         <div className="hero-cta">
           <a href="#projects" className="btn btn-primary">Ver Proyectos</a>
           <button type="button" className="btn btn-contact" onClick={onContactClick}>Contactar</button>
