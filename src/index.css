@@ -100,43 +100,127 @@ body::before {
   top: 0;
   left: 0;
   right: 0;
-  padding: 20px 40px;
+  padding: 16px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(1, 95, 210, 0.15);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--glass-border);
+  background: transparent;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  min-height: 72px;
 }
 
-.header.scrolled {
-  padding: 12px 40px;
-  background: rgba(1, 95, 210, 0.25);
+.header.hero-visible {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: transparent;
+}
+
+.header.expanded {
+  background: rgba(10, 16, 32, 0.92);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--light);
-  text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-left: 12px;
+}
+
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 6px;
+  transition: background 0.3s ease, opacity 0.3s ease, width 0.3s ease, margin 0.3s ease;
+  overflow: hidden;
+}
+
+.logo:hover .logo-icon {
+  background: rgba(104, 232, 227, 0.16);
+}
+
+.logo:hover .logo-f,
+.logo:hover .logo-ss {
+  color: var(--accent);
 }
 
 .logo img {
-  height: 48px;
+  height: 32px;
   width: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-icon:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.05);
 }
 
 .logo-text {
   font-family: 'Exo 2', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  display: inline;
+  display: none;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.header.expanded .logo-icon {
+  opacity: 0;
+  width: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.header.expanded .logo img {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.header.hero-visible .logo img {
+  opacity: 1;
+  transform: scale(1);
+  width: auto;
+}
+
+.header.expanded .logo-text {
+  display: inline-flex;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.header.hero-visible .logo-text {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.nav.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
 }
 
 .logo-f {
@@ -149,11 +233,6 @@ body::before {
 
 .logo-accent {
   color: var(--accent);
-}
-
-.nav {
-  display: flex;
-  gap: 32px;
 }
 
 .nav a {
@@ -1807,10 +1886,6 @@ h3.section-title {
   gap: 24px;
 }
 
-.stack-main-row {
-  /* El stack principal mantiene su tamaño */
-}
-
 .stack-expand-row {
   display: flex;
   justify-content: center;
@@ -2009,6 +2084,20 @@ h3.section-title {
 }
 
 @media (max-width: 480px) {
+  /*Contact responsive*/
+  /*Orden de los botones en movil*/
+  .modal-footer {
+  flex-direction: column;
+}
+
+.modal-footer .btn-primary {
+  order: 1;
+}
+
+.modal-footer .btn-cancel {
+  order: 2;
+}
+  /**/
   .hero-title {
     font-size: 2rem;
   }

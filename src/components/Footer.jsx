@@ -45,7 +45,7 @@ export default function Footer({ onContactClick }) {
           <p className="footer-cta-tag">// DÓNDE ENCONTRARME - FOLLOW ME -</p>
           <h3>Redes</h3>
           <div className="footer-social-column">
-            <a href="https://www.instagram.com/fluxxar/" aria-label="Instagram">
+            <a href="https://www.instagram.com/emi.wzrd/" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37a4 4 0 1 1-7.98 1.56 4 4 0 0 1 7.98-1.56z" />

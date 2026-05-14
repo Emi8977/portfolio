@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 
 // Imágenes específicas para cada proyecto
 const sinergiaImages = [
-  'https://iili.io/BQuhpHJ.png',
-  'https://iili.io/BQuwYBI.png'
+  
+  'https://iili.io/Bm4k8Al.png',
+  'https://iili.io/Bm4k8Al.png',
+  'https://iili.io/Bm4k8Al.png'
 ]
 
 const tallerManagerImages = [
@@ -22,8 +24,10 @@ const tallerManagerImages = [
 ]
 
 const sendMailingImages = [
-  'https://iili.io/BQuhpHJ.png',
-  'https://iili.io/BQuwYBI.png'
+  'https://iili.io/Bm4k8Al.png',
+  'https://iili.io/Bm4k8Al.png',
+  'https://iili.io/Bm4k8Al.png'
+  
 ]
 
 const ecommerceShoppilyImages = [
@@ -38,8 +42,10 @@ const ecommerceShoppilyImages = [
 ]
 
 const erpImages = [
-  'https://iili.io/BQuhpHJ.png',
-  'https://iili.io/BQuwYBI.png'
+  'https://iili.io/Bm4k8Al.png',
+  'https://iili.io/Bm4k8Al.png',
+  'https://iili.io/Bm4k8Al.png'
+  
 ]
 
 const projects = [
@@ -89,7 +95,7 @@ const projects = [
     apps: [
       {
         id: 'sinergiaplus',
-        title: 'Sinergia+',
+        title: 'Sinergia+ (proximamente)',
         description: 'Sinergia+ nació como un proyecto académico junto a referentes y organizadores de clubes y grupos comunitarios que necesitaban una solución para fomentar la actividad física y la vida social. La app permite crear y unirse a grupos y eventos — tanto deportivos como recreativos — conectando personas con intereses en común.\n\nLideré el equipo de desarrollo y actué como nexo directo con los organizadores, traduciendo sus necesidades en decisiones de producto. Además de la coordinación del equipo, fui el desarrollador principal, llevando adelante la implementación con Flutter.\n\nEl desafío fue diseñar una experiencia que incentive la participación activa — no solo que los usuarios descubran eventos, sino que los creen, convoquen y sostengan en el tiempo. \n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción se encuentra en uso activo.',
         logo: 'https://iili.io/BQ28afV.png',
         images: sinergiaImages,
@@ -105,7 +111,7 @@ const projects = [
       },
       {
         id: 'sendmailing',
-        title: 'SendMailing App',
+        title: 'SendMailing App (proximamente)',
         description: 'SendMailing es una app móvil desarrollada a medida para complementar el sistema interno de un emprendimiento de mensajería, con el objetivo de optimizar y simplificar el proceso de reparto y control de envíos.\n\nDesarrollé el proyecto de forma independiente para un emprendimiento local, cubriendo desde el diseño de la experiencia hasta la implementación completa con Flutter y Firebase.\n\nLa app opera en dos roles: el repartidor gestiona sus envíos asignados y actualiza el estado de cada uno — en camino, en almacén, entregado o cancelado — mientras que el manager tiene visibilidad total del historial y puede intervenir ante cualquier problema. La confirmación final se complementa con un sistema de firma en papel ya existente, por lo que la app se integró al flujo real sin reemplazarlo.\n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción no está en uso activo.',
         logo: 'https://iili.io/BQ2LAYv.png',
         images: sendMailingImages,
@@ -124,9 +130,9 @@ const projects = [
     apps: [
       {
         id: 'erp-web',
-        title: 'Panel Web',
+        title: 'Stock-flow (proximamente)',
         description: 'Interfaz web completa para gestión de inventario, contabilidad y recursos humanos con dashboards en tiempo real.',
-        logo: 'https://via.placeholder.com/160?text=ERP+Web',
+        logo: 'https://iili.io/Bm4N9YQ.png',
         images: erpImages,
         url: 'https://erp.fluxxar.com/web'
       },
