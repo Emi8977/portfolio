@@ -16,7 +16,7 @@ const services = [
     icon: logoaxsistemamedida,
     symbolAfter: ']',
     title: 'Aplicaciones',
-    description: 'Desarrollo aplicaciones según lo que necesites, desde una idea inicial hasta un producto funcional.'
+    description: 'Desarrollo aplicaciones, desde una idea inicial hasta un producto funcional.'
   },
   {
     symbolBefore: '<',
