@@ -3,9 +3,17 @@ import { useEffect, useRef, useState } from 'react'
 // Imágenes específicas para cada proyecto
 const sinergiaImages = [
   
-  'https://iili.io/Bm4k8Al.png',
-  'https://iili.io/Bm4k8Al.png',
-  'https://iili.io/Bm4k8Al.png'
+  'https://iili.io/CHiBEg9.jpg',
+  'https://iili.io/CHiC1QR.jpg',
+  'https://iili.io/CHiCtCQ.jpg',
+  'https://iili.io/CHin7P2.jpg',
+  'https://iili.io/CHinNcP.jpg',
+  'https://iili.io/CHiofDb.jpg',
+  'https://iili.io/CHiowXf.jpg',
+  'https://iili.io/CHixX3B.jpg',
+  'https://iili.io/CHiz5Mv.jpg',
+  'https://iili.io/CHiI3JI.jpg',
+  'https://iili.io/CHiIaWb.jpg'
 ]
 
 const tallerManagerImages = [
@@ -95,11 +103,11 @@ const projects = [
     apps: [
       {
         id: 'sinergiaplus',
-        title: 'Sinergia+ (proximamente)',
-        description: 'Sinergia+ nació como un proyecto académico junto a referentes y organizadores de clubes y grupos comunitarios que necesitaban una solución para fomentar la actividad física y la vida social. La app permite crear y unirse a grupos y eventos — tanto deportivos como recreativos — conectando personas con intereses en común.\n\nLideré el equipo de desarrollo y actué como nexo directo con los organizadores, traduciendo sus necesidades en decisiones de producto. Además de la coordinación del equipo, fui el desarrollador principal, llevando adelante la implementación con Flutter.\n\nEl desafío fue diseñar una experiencia que incentive la participación activa — no solo que los usuarios descubran eventos, sino que los creen, convoquen y sostengan en el tiempo. \n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción se encuentra en uso activo.',
+        title: 'Sinergia+',
+        description: 'Sinergia+ nació como un proyecto académico junto a referentes y organizadores de clubes y grupos comunitarios que necesitaban una solución para fomentar la actividad física y la vida social. La app permite crear y unirse a grupos y eventos — tanto deportivos como recreativos — conectando personas con intereses en común.\n\nLideré el equipo de desarrollo y actué como nexo directo con los organizadores, traduciendo sus necesidades en decisiones de producto. Además de la coordinación del equipo, fui el desarrollador principal, llevando adelante la implementación con Flutter.\n\nEl desafío fue diseñar una experiencia que incentive la participación activa — no solo que los usuarios descubran eventos, sino que los creen, convoquen y sostengan en el tiempo. \n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción se encuentra en uso activo.\n\n\_nota: Usuario (admin): personal@email.com / Contraseña: 123456\n\n\_nota: Usuario(regular): personal2@email.com / Contraseña: 123456 \n\nNimbus Software es un proyecto incorporado al portfolio de Fluxxar Software Studio, que gestiona su continuidad operativa, el desarrollo del software y su identidad visual.',
         logo: 'https://iili.io/BQ28afV.png',
         images: sinergiaImages,
-        url: 'https://apps.fluxxar.com/sinergia'
+        url: 'https://appetize.io/app/b_ipfkyazf6xnfyxdrwunk3xbvt4'
       },
       {
         id: 'tallermanager',
