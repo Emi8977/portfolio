@@ -32,9 +32,18 @@ const tallerManagerImages = [
 ]
 
 const sendMailingImages = [
-  'https://iili.io/Bm4k8Al.png',
-  'https://iili.io/Bm4k8Al.png',
-  'https://iili.io/Bm4k8Al.png'
+  'https://iili.io/CCtsHCl.jpg',
+  'https://iili.io/CCts1Gp.jpg',
+  'https://iili.io/CCtsLox.jpg',
+  'https://iili.io/CCtLGxj.jpg',
+  'https://iili.io/CCtZ799.jpg',
+  'https://iili.io/CCttfKQ.jpg',
+  'https://iili.io/CCttjg2.jpg',
+  'https://iili.io/CCtDd7I.jpg',
+  'https://iili.io/CCtm6g4.jpg',
+  'https://iili.io/CCD9O5Q.jpg',
+  'https://iili.io/CCDHRTB.jpg',
+  'https://iili.io/CCDJUla.jpg'
   
 ]
 
@@ -55,6 +64,14 @@ const erpImages = [
   'https://iili.io/Bm4k8Al.png'
   
 ]
+
+const erpAgentImages = [
+  'https://iili.io/Bm4k8Al.png',
+  'https://iili.io/Bm4k8Al.png',
+  'https://iili.io/Bm4k8Al.png'
+  
+]
+
 
 const projects = [
   
@@ -119,11 +136,11 @@ const projects = [
       },
       {
         id: 'sendmailing',
-        title: 'SendMailing App (proximamente)',
-        description: 'SendMailing es una app móvil desarrollada a medida para complementar el sistema interno de un emprendimiento de mensajería, con el objetivo de optimizar y simplificar el proceso de reparto y control de envíos.\n\nDesarrollé el proyecto de forma independiente para un emprendimiento local, cubriendo desde el diseño de la experiencia hasta la implementación completa con Flutter y Firebase.\n\nLa app opera en dos roles: el repartidor gestiona sus envíos asignados y actualiza el estado de cada uno — en camino, en almacén, entregado o cancelado — mientras que el manager tiene visibilidad total del historial y puede intervenir ante cualquier problema. La confirmación final se complementa con un sistema de firma en papel ya existente, por lo que la app se integró al flujo real sin reemplazarlo.\n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción no está en uso activo.',
+        title: 'SendMailing App',
+        description: 'SendMailing es una app móvil desarrollada a medida para complementar el sistema interno de un emprendimiento de mensajería, con el objetivo de optimizar y simplificar el proceso de reparto y control de envíos.\n\nDesarrollé el proyecto de forma independiente para un emprendimiento local, cubriendo desde el diseño de la experiencia hasta la implementación completa con Flutter y Firebase.\n\nLa app opera en dos roles: el repartidor gestiona sus envíos asignados y actualiza el estado de cada uno — en camino, en almacén, entregado o cancelado — mientras que el manager tiene visibilidad total del historial y puede intervenir ante cualquier problema. La confirmación final se complementa con un sistema de firma en papel ya existente, por lo que la app se integró al flujo real sin reemplazarlo.\n\n\_nota: Usuario (admin): personal@email.com / Contraseña: 123456\n\n\_nota: Usuario(regular): personal2@email.com / Contraseña: 123456\n\n\_nota: La versión desplegada es un entorno de demostración — la plataforma de producción no está en uso activo.',
         logo: 'https://iili.io/BQ2LAYv.png',
         images: sendMailingImages,
-        url: 'https://apps.fluxxar.com/sendmailing'
+        url: 'https://appetize.io/app/b_wbshum4keaqdarufuapr26lsdi'
       }
     ]
   },
@@ -144,13 +161,14 @@ const projects = [
         images: erpImages,
         url: 'https://erp.fluxxar.com/web'
       },
-      // {
-      //   id: 'erp-mobile',
-      //   title: 'App Móvil',
-      //   description: 'Aplicación móvil para acceso rápido a reportes y gestión básica desde dispositivos móviles.',
-      //   logo: 'https://via.placeholder.com/160?text=ERP+Mobile',
-      //   url: 'https://erp.fluxxar.com/mobile'
-      // },
+       {
+         id: 'erp-agent',
+         title: 'Acomoda-cajas de Stock flow (proximamente)',
+         description: 'Agente IA para consultas rapidas y asistencia al personal. \n\n_nota: Versión Beta (20 consultas diarias): https://consultas-stockflow.onrender.com/ \n\n Stack utilizado: Gemini Flash, Node.js, React.js, MongoDB Atlas, Docker.',
+         logo: 'https://iili.io/CCDjzy7.png',
+         images: erpAgentImages,
+         url: 'https://consultas-stockflow.onrender.com'
+       },
       // {
       //   id: 'erp-admin',
       //   title: 'Herramienta Admin',
