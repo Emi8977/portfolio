@@ -72,6 +72,11 @@ const erpAgentImages = [
   
 ]
 
+const saliditappImages = [
+  'https://iili.io/Ckj4hH7.png',
+  'https://iili.io/Ckj6Fsf.png'
+  
+]
 
 const projects = [
   
@@ -91,6 +96,14 @@ const projects = [
         logo: 'https://iili.io/BtvOuKN.png',
         images: ecommerceShoppilyImages,
         url: 'https://shoppily-ecommerce-demo.onrender.com'
+      },
+      {
+        id: 'saliditapp-Calendario',
+        title: 'Saliditapp - Calendario',
+        description: 'Saliditapp es una aplicación diseñada para gestionar eventos y actividades sociales, permitiendo a los usuarios elegir dias y concluir cual es el dia en el que todos coincidan .\n\nDesarrollé el proyecto de forma independiente como solución reutilizable, pensada para adaptarse a distintos contextos sin partir desde cero. La app surgió de la necesidad de facilitar la organización y participación en actividades comunitarias.\n\nEl desafío fue diseñar una experiencia intuitiva que permita a los usuarios navegar lo mas sensillamente posible, crear sus propios eventos y colaborar con otros miembros de la comunidad.\n\n_nota: La versión desplegada es un entorno de demostración — la plataforma de producción se encuentra en uso activo.',
+        logo: 'https://iili.io/CkjgbLv.png',
+        images: saliditappImages,
+        url: 'https://saliditappcalendario.onrender.com/'
       },
       // {
       //   id: 'ecommerce-mobile',
