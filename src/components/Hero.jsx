@@ -10,11 +10,12 @@ export default function Hero({ onContactClick }) {
       <div className="floating-element">&lt;*&gt;</div>
       
       <div className="hero-content">
-        <div className="hero-banner">
+        {/*<div className="hero-banner">
           <img src={logo} alt="Fluxxar icon" className="hero-banner-icon" />
           <img src={logobanner} alt="FLUXXAR SOFTWARE STUDIO" className="hero-banner-image" />
         </div>
-        <p className="hero-tag">// LA IDEA EN PRODUCCIÓN</p>
+        */}
+        <p className="hero-tag">// idea.build() </p>
         {/*
         <h1 className="hero-title">
           <span className="hero-brand">FLUXXAR</span><br />

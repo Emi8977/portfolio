@@ -90,7 +90,7 @@ export default function Footer({ onContactClick }) {
         <div className="footer-bottom">
           <div className="footer-logo">
             <img src={logo} alt="FLUXXAR" height="32" />
-            <span className="footer-copyright">© 2026 Fluxxar Software Studio™. Todos los derechos reservados.</span>
+            <span className="footer-copyright">© 2026 Desarrollado por Emiliano Luna™. Todos los derechos reservados.</span>
           </div>
         </div>
       </div>
