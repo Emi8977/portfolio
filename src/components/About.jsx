@@ -31,19 +31,19 @@ export default function About() {
   return (
     <section className="about" id="about">
       <div className="section-header">
-        <p className="section-tag">// QUE ES FLUUXAR?</p>
+        <p className="section-tag">// whoAmI() </p>
         <h2 className="section-title">Sobre <span className="accent-word">Mí</span></h2>
       </div>
       <div className="about-content">
         <div className="about-text">
           <p>
-            Soy Emiliano Luna, Full Stack Developer próximo a recibirme de la Tecnicatura en Desarrollo de Software en la Universidad de Cuyo. <br/>
+            Soy Emiliano Luna, Full Stack Developer próximo a graduarme de la Tecnicatura en Desarrollo de Software en la Universidad de Cuyo. <br/>
 
             Mi foco está en el desarrollo de aplicaciones, y cuento con formación en análisis y procesamiento de datos, lo que me permite abordar problemas técnicos con una mirada más analítica.
             
-            <br/>Fluxxar Software Studio, es mi proyecto de marca personal - la forma en que organizo, desarrollo y presento mis proyectos con criterio propio.
-            
-            </p>
+            {//<br/>Fluxxar Software Studio, es mi proyecto de marca personal - la forma en que organizo, desarrollo y presento mis proyectos con criterio propio.
+            }
+            </p> 
           <p>
           </p>
         </div>

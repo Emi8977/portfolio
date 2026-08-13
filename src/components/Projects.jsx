@@ -242,7 +242,7 @@ export default function Projects() {
   return (
     <section className="projects" id="projects">
       <div className="section-header">
-        <p className="section-tag">// MIS PROYECTOS</p>
+        <p className="section-tag">// projects[] </p>
         <h2 className="section-title">Pro<span className="accent-word">yectos</span></h2>
       </div>
       <div className="projects-grid">
