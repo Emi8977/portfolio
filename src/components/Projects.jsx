@@ -59,9 +59,9 @@ const ecommerceShoppilyImages = [
 ]
 
 const erpImages = [
-  'https://iili.io/Bm4k8Al.png',
-  'https://iili.io/Bm4k8Al.png',
-  'https://iili.io/Bm4k8Al.png'
+  'https://iili.io/CsWCSYQ.png',
+  'https://iili.io/CsWzLDN.png',
+  'https://iili.io/CsWAAzl.png'
   
 ]
 
@@ -162,21 +162,21 @@ const projects = [
     title: 'Sistemas de gestión.',
     description: 'Organización, datos y procesos en un solo lugar.',
     tags: ['React', 'Node.js', 'PostgreSQL'],
-    link: 'https://erp.fluxxar.com',
+    link: 'https://erp-system-dev.onrender.com',
     /*image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=640&q=80',*/
     badge: { text: 'FLUXXAR <control/>', colorPart: '#ff4757' },
     apps: [
       {
         id: 'erp-web',
-        title: 'Stock-flow (proximamente)',
-        description: 'Interfaz web completa para gestión de inventario, contabilidad y recursos humanos con dashboards en tiempo real.',
+        title: 'Stock-flow (Beta)',
+        description: 'ERP StockFlow es una aplicación web de gestión operativa para empresas con múltiples sucursales, diseñada para centralizar y facilitar el control de stock, compras, ventas, logística y permisos de usuarios. \n\n\nLa plataforma permite gestionar de forma integral el flujo operativo de una empresa, con foco en la trazabilidad del inventario y la coordinación de tareas entre sucursales. \n\n-Gestión de stock disponible por sucursal \n\n- Control de lotes y productos \n\n- Órdenes de compra y recepciones \n\n- Pedidos de venta \n\n- Reportes e indicadores operativos \n\n- Inventarios físicos \n\n- Tareas internas y asignación de responsabilidades \n\n- Solicitudes de acceso entre sucursales \n\n- Devoluciones de clientes y proveedores \n\n- Autenticación con roles y permisos \n\n- Dashboard ejecutivo con alertas por stock bajo. \n\n\nLa aplicación cuenta con varios roles para controlar accesos y permisos: \n\n- Super Admin \n\n- Administración \n\n- Encargado \n\n- Recepción \n\n- Almacenaje \n\n- Despacho \n\n- Comercial \n\n- Auditor. \n\n\nEste proyecto fue desarrollado como un ERP interno con arquitectura web moderna usando: \n\n- Frontend: React + TypeScript + Vite + Tailwind CSS \n\n- Backend: Node.js + Express + TypeScript \n\n- Base de datos: PostgreSQL con Prisma \n\n- Autenticación: JWT y control por roles. \n\n\n\ Este usuario tiene acceso para tareas de coordinación y supervisión operativa dentro de la sucursal asignada. \n\n\_nota: Email: encargado@erp.local \n\n\_nota: Contraseña: Enc2026! \n\n\n\ Para probrar otros roles, contactate.',
         logo: 'https://iili.io/Bm4N9YQ.png',
         images: erpImages,
-        url: 'https://erp.fluxxar.com/web'
+        url: 'https://erp-system-dev.onrender.com/'
       },
        {
          id: 'erp-agent',
-         title: 'Acomoda-cajas de Stock flow (proximamente)',
+         title: 'Acomoda-cajas de Stock flow (Under repair)',
          description: 'Agente IA para consultas rapidas y asistencia al personal. \n\n_nota: Versión Beta (20 consultas diarias): https://consultas-stockflow.onrender.com/ \n\n Stack utilizado: Gemini Flash, Node.js, React.js, MongoDB Atlas, Docker.',
          logo: 'https://iili.io/CCDjzy7.png',
          images: erpAgentImages,
